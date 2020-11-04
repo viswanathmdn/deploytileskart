@@ -1,0 +1,49 @@
+<h1 style="text-align:center">TilesKart</h1>
+
+
+
+
+<div class="container">
+	<div class="card ">
+	<div class="card-header bg-primary">Tiles
+    <select [(ngModel)]="selectedFilter" id="selectBox" name="filterBox">
+      <option *ngFor="let filter of filterOptions" value="{{filter}}"
+    >{{filter}}</option>
+    </select>
+    selectedfilter: {{selectedFilter}}
+    <input type="text" [(ngModel)]="filterText" name="filterText" id="filterText" />
+    filtertext: {{filterText}}
+    
+    <button  (click)="filter()">Go</button>
+    <span style="float:right"> Region : {{tileService.getCurrentLocale()}} </span>
+    
+      <h4 style="text-align: right;text-emphasis: after top 2px;">Prasent date : {{shoppingDate|date}}</h4>
+     
+     
+  </div>
+	<div class="card-body o">
+  	<table class="table" *ngIf="tiles && tiles.length>1" >
+    	<thead>
+    	<tr>
+    	<th>Image</th>
+    	<th> name</th>
+    	<th> model</th>
+    	<th> price</th>
+      <th>Stock</th>
+      <th>rating</th>
+    	</tr>
+    	</thead>
+    	<tr *ngFor="let tile of filteredTiles"  app-tile [tile]='tile'>
+        
+    	</tr>
+    	</table>
+	</div>
+	<div class="card-footer bg-primary"></div>
+  </div>
+ </div>
+  
+<br>
+
+ 
+
+    

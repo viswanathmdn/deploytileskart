@@ -1,0 +1,8 @@
+<fa-icon [icon]="faStar" *ngFor="let i of ratingArray"></fa-icon>
+
+<span>
+    <input type="text" name="" id="" [(ngModel)]="newRating" width="10px">
+</span>
+<span>
+<button (click)="updateRating()">update</button>
+</span>

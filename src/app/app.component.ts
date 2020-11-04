@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'tilesKart';
+  employee ={
+    name:"viswa",
+    age:23,
+    married:false
+  }
+  
 }

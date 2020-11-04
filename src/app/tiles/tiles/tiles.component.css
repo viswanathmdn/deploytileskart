@@ -1,0 +1,9 @@
+tr:nth-child(odd){
+    background-color: lightgray;
+    color:black;
+ }
+ img{
+     width:45px;
+     height: 45px;
+ }
+ 

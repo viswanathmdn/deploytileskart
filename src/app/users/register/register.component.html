@@ -1,0 +1,83 @@
+
+<div class="container">
+  <div class="card ">
+  <div class="card-header bg-primary">Tiles
+    <span style="float:right;color: white;">Register-Here</span>
+  </div>
+  <div class="card-body ">
+  <form name="register" [formGroup]="registerForm">
+    <!--user name-->
+  <div class="form-group" >
+  <label for="userName">User Name</label>
+  <input type="text" class="form-control" formControlName ="userName" required>
+ 
+  </div>
+  <!--email-->
+  <div class="form-group" >
+  <label for="userName">Email</label>
+  <input type="text"  class="form-control" formControlName ="email" >
+  </div>
+  <!--phone number-->
+  <div class="form-group" >
+  <label for="userName">Phone Number</label>
+  <input type="text"  class="form-control" formControlName ="phoneNumber">
+  </div>
+  
+  <div formGroupName="billingAddress">
+    <!--door number-->
+  <div class="form-group">
+    Door Number
+    <input type="text" formControlName="doorNumber" class="form-control">
+  </div>
+  <!--city-->
+  <div class="form-group">
+    City:
+    <input type="text" formControlName="city" class="form-control">
+  </div>
+  <!--pin code-->
+  <div class="form-group">
+    Pin Code:
+    <input type="text" formControlName="zip" class="form-control">
+  </div>
+ 
+  <div class="alert alert-danger" *ngIf="registerForm.get('billingAddress').get('zip').status == 'INVALID'" >
+  pin code is not valid and it should be 6 digit character
+  </div>
+  
+  </div>
+   <!--button-->
+
+  <div>
+  <button class="btn btn-primary" (click)="register()" [disabled]="!registerForm.valid" >Register</button>
+  </div>
+  
+  </form>
+  </div>
+  <div style="margin-left: 20px;">
+
+    <div>
+      user name field validity : {{registerForm.get('userName').status}}
+      </div>
+      
+      <div>
+      form validity : {{registerForm.status}}
+      </div>
+      
+      <div>
+      zip code validity: {{registerForm.get('billingAddress').get('zip').status}}
+      </div><br>
+      
+      <div>
+      {{registerForm.value |json}}
+      </div><br>
+      
+      <div>
+      {{saveMessage}}
+      </div>
+  </div>
+  
+  </div>
+  <div class="card-footer bg-primary"></div>
+  </div>
+  
+  

@@ -1,0 +1,59 @@
+
+
+
+<div class="container">
+	<div class="card ">
+	<div class="card-header bg-primary">Login
+   
+  </div>
+	<div class="card-body o">
+    <form  #loginForm="ngForm" >
+    
+
+      <!--<input type="text" class="form-control" name="username" [value]="userName"  required />-->
+    <div>
+      <label>Username : </label>
+      <input type="text"  name="userName" [(ngModel)]="userName"  required #uName="ngModel" 
+      [pattern]="zippattern" />
+    </div><br>
+    <div class="alert alert-danger" *ngIf="!uName.valid && uName.dirty"  >
+      user name is required
+    </div>
+    <div  *ngIf="((!uName.valid) && uName.errors?.pattern )" class="alert alert-danger">
+      user name does not match with the pattern
+    </div>
+ 
+   
+  
+    <div>
+      <label>Password :  </label>
+      <input type="password"  name="password" [(ngModel)]="password" required #pass="ngModel"  />
+    </div><br>
+    <div class="alert alert-danger" *ngIf="!pass.valid && pass.dirty "  >
+      password is required
+    </div>
+  
+    <div>
+        <button  [disabled]="!loginForm.valid" (click)="login()">Login</button>
+    </div><br>
+   
+ 
+  <!--
+     <div>
+      <button type="button" (click)="addStudent()">Add Student</button>
+    </div><br>
+  <div *ngFor="let student of studentList; let i = index">
+    <input type="text" name={{student.name}}>
+    <input type="number" name={{student.phoneNumber}}>
+    <input type="text" name="{{student.branch}}">
+    <button type="button" (click)="removeUser(i)">Remove</button>
+  </div>-->
+
+  </form>
+  </div>
+	<div class="card-footer bg-primary"></div>
+  </div>
+ </div>
+
+
+

@@ -1,0 +1,10 @@
+<td><img [src]="imagePath+tile.image" alt="" srcset="" width="42" height="42"></td>
+<td><a [routerLink]="['/tiles',tile.Id,tile.name]" [queryParams]="{name:tile.name,model:tile.model}"> {{tile.name}}</a></td>
+<td>{{tile.model}}</td>
+<td> {{tile.price | currency:'INR'}}</td>      
+<td> {{tile.status |status}}</td>
+<td><app-star [rating]='tile.rating' (ratingUpdated)="updateRatingValue($event)"></app-star></td>
+
+<!--
+    <button (click)="changeRating()">changeRating</button>
+-->
